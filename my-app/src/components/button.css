@@ -1,0 +1,45 @@
+:root {
+    --primary:#ffffff;
+    --warning: #ffd028;
+    --danger: #eb3f27;
+    --success: #75fa83;
+    --purple: #800080;
+    --dark: #181717;
+}
+
+.btn {
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    border-radius: 25px;
+    cursor: pointer;
+
+
+}
+
+.btn:hover {
+    transform: translateY(-3);
+    background-color: var(--purple);
+    color: white;
+}
+
+/* Button Styles */
+
+.btn--primary--outline {
+    background-color: var(--primary);
+    color: var(--purple);
+    border: 1px solid;
+    borderline: var(--purple);
+
+}
+
+/* Button Sizes */
+
+
+.btn--small {
+    font-size: 20px;
+    padding: 10px;
+}
+.btn--medium {
+    font-size: 25px;
+    padding: 15px;
+}
