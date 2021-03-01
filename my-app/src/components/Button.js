@@ -2,12 +2,13 @@ import React from "react";
 import "./button.css";
 
 const STYLES = [
-    "btn--primary--outline"
+    "btn--primary--outline",
+    "btn--primary--solid"
 ]
 
 const SIZES = [
     "btn--small",
-    "btn--medium"
+    "btn--large"
 
 ]
 
