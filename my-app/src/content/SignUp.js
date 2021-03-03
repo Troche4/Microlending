@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import { Link } from "react-router-dom";
+import "./signUp.css"
 class SignUp extends Component {
     render() {
         return (
-            <div>
+            <div className="formContainer">
 
-                <h1>Hello!</h1>
+                <h1>Hello</h1>
 
             </div>
         )

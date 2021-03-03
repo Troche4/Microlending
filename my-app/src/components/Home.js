@@ -9,18 +9,20 @@ class Home extends Component {
         return (
             <HashRouter>
                 <div className="container">
-                    <div className="logo">
+                    <header>
+                   <Link exact={"true"} to="/"> <div className="logo">
                         <img src={logo} alt="Logo" />
                         <div className="businessName">LEND</div>
-                    </div>
-                    <div className="header">
+                    </div></Link>
+                    </header>
+                    <nav className="nav-header">
                         <Button onClick={() => {console.log("You Clicked on Me!") }}
                                 type = "button"
                                 buttonStyle="btn--primary--outline"
                                 buttonSize="btn--small"
                         >Sign in</Button>
-                    </div>
-                    <div className="sidebar">
+                    </nav>
+                    <aside className="sidebar">
                         <h1>
                             Effortlessly lend money to the entrepreneurs who need it.
                         </h1>
@@ -32,7 +34,7 @@ class Home extends Component {
                                 buttonStyle="btn--primary--solid"
                                 buttonSize="btn--large"
                         >Sign up</Button></Link>
-                    </div>
+                    </aside>
                     <div className="content">
 
                         <Route path="/signUp" component={SignUp}/>
