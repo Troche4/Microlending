@@ -14,9 +14,7 @@
 }
 
 
-img{
-  height: 80%;
-}
+
 
 
 .content {
@@ -34,8 +32,13 @@ img{
   grid-area: footer;
 
 }
+* {
+  outline: none;
+}
+
 
 /*styling for links*/
-a:link, a:visited, a:hover{
+a:link, a:visited, a:hover, a:active, a:focus{
   text-decoration: none;
+
 }
