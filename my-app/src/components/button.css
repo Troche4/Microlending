@@ -5,6 +5,7 @@
     --success: #75fa83;
     --purple: #800080;
     --dark: #181717;
+    --gray: #585858;
 }
 
 .btn {
@@ -39,6 +40,17 @@
     border: 1px solid;
     borderline: none;
 
+
+}
+
+.btn--primary--form {
+
+    background-color: var(--primary);
+    color: var(--gray);
+    border: 1px solid var(--gray);
+    border-radius: 25px;
+    borderline: none;
+    margin: 10px;
 }
 .btn--primary--solid:hover{
     background-color: var(--primary);

@@ -1,8 +1,32 @@
 .formContainer {
-    min-height: 70vh;
+
     display: flex;
-    justify-content: center;
-    align-items: center;
+    flex-direction:column;
+    margin:10% 50% 10% 10%;
+    padding: 20px 10px 20px 10px;
+    background: #FFFFFF;
+    text-align: center;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+.text-container{
+    font-family: "Roboto", sans-serif;
+    font-size: 20px;
+    padding: 10% 15% 10% 15%;
+
+
+}
+.form-input {
+    margin: 15px;
+
+}
+.input-field{
+    box-sizing: border-box;
+    border: 1px solid lightgray;
+    font-size: 20px;
+    padding: 10px;
+    border-radius: 25px;
+    width: 100% !important;
+    max-width: none !important;
 
 }
 
