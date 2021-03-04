@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import {HashRouter, Route} from "react-router-dom";
-import SignUp from "../content/SignUp";
 import LogoHeader from "./LogoHeader";
 import NavHeader from "./NavHeader";
 import Aside from "./Aside";
+import Content from "./Content";
+import Footer from "./Footer";
 class Home extends Component {
     render() {
         return (
@@ -12,12 +13,8 @@ class Home extends Component {
                     <LogoHeader />
                     <NavHeader />
                     <Aside />
-                    <div className="content">
-
-                        <Route path="/signUp" component={SignUp}/>
-                    </div>
-                    <div className="footer"></div>
-
+                    <Content />
+                    <Footer />
                 </div>
             </HashRouter>
         );

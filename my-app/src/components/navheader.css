@@ -2,8 +2,8 @@
     background-color: #FFFFFF;
     grid-area: header;
     display: flex;
-    align-items: center;
     justify-content: flex-end;
+    align-items: center;
     padding-right: 200px;
 
 

@@ -1,11 +1,10 @@
-import React, {useState} from 'react';
 import "./aside.css";
 import Button from "./Button";
 import {Link} from "react-router-dom";
 
 function Aside() {
     return (
-        <aside className="sidebar">
+        <div className="sidebar">
             <h1>
                 Effortlessly lend money to the entrepreneurs who need it.
             </h1>
@@ -17,7 +16,7 @@ function Aside() {
                 buttonStyle="btn--primary--solid"
                 buttonSize="btn--large"
             >Sign up</Button></Link>
-        </aside>
+        </div>
     )
 }
 export default Aside;
