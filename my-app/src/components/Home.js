@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import {HashRouter, Route} from "react-router-dom";
 import SignUp from "../content/SignUp";
-import LogoHeader from "./Logo-Header";
+import LogoHeader from "./LogoHeader";
 import NavHeader from "./NavHeader";
 import Aside from "./Aside";
 class Home extends Component {
