@@ -1,40 +1,17 @@
 import React, { Component } from 'react';
-import logo from "../lendLogo.svg";
-import Button from "./Button";
 import {HashRouter, Route} from "react-router-dom";
-import { Link } from "react-router-dom";
 import SignUp from "../content/SignUp";
+import LogoHeader from "./Logo-Header";
+import NavHeader from "./NavHeader";
+import Aside from "./Aside";
 class Home extends Component {
     render() {
         return (
             <HashRouter>
                 <div className="container">
-                    <header>
-                   <Link exact={"true"} to="/"> <div className="logo">
-                        <img src={logo} alt="Logo" />
-                        <div className="businessName">LEND</div>
-                    </div></Link>
-                    </header>
-                    <nav className="nav-header">
-                        <Button onClick={() => {console.log("You Clicked on Me!") }}
-                                type = "button"
-                                buttonStyle="btn--primary--outline"
-                                buttonSize="btn--small"
-                        >Sign in</Button>
-                    </nav>
-                    <aside className="sidebar">
-                        <h1>
-                            Effortlessly lend money to the entrepreneurs who need it.
-                        </h1>
-                        <h3>
-                            We make it easy for you to lend money where you want it to go.
-                        </h3>
-                        <Link to="/signUp"><Button
-                                type = "button"
-                                buttonStyle="btn--primary--solid"
-                                buttonSize="btn--large"
-                        >Sign up</Button></Link>
-                    </aside>
+                    <LogoHeader />
+                    <NavHeader />
+                    <Aside />
                     <div className="content">
 
                         <Route path="/signUp" component={SignUp}/>
