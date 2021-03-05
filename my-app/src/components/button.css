@@ -57,7 +57,11 @@
     color: var(--purple);
 
 }
-
+.btn--primary--form:hover {
+    background-color: var(--primary);
+    color: var(--purple);
+    border-color: var(--purple);
+}
     /* Button Sizes */
 
 
