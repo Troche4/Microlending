@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 import "./signUp.css"
-import "../components/button.css"
-
 
 
 const validEmailRegex = RegExp(/^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i);
@@ -10,9 +8,17 @@ const validateForm = (errors) => {
     Object.values(errors).forEach(
         (val) => val.length > 0 && (valid = false)
     );
+    const a = document.getElementsByName("firstName")[0].value
+    const b = document.getElementsByName("lastName")[0].value
+    const c = document.getElementsByName("email")[0].value
+    const d = document.getElementsByName("password")[0].value
+    const e = document.getElementsByName("password2")[0].value
+
+    if ((a == null || a === ""), (b == null || b === ""), (c == null || c === "" ), (d == null || d === ""),(e == null || e === "")) {
+        return false;
+    }
     return valid;
 }
-
 class SignUp extends Component {
 
 
@@ -32,6 +38,14 @@ class SignUp extends Component {
                 password2:''
             }
         };
+    }
+    handleSubmit = (event) => {
+        event.preventDefault();
+        if(validateForm(this.state.errors)) {
+            alert('Valid Form')
+        }else{
+            alert('Invalid Form')
+        }
     }
 
     handleChange = (event) => {
@@ -69,7 +83,6 @@ class SignUp extends Component {
                     value !== document.getElementsByName("password")[0].value
                         ? 'Your passwords do not match!'
                         : '';
-                console.log(value.password)
                 break;
             default:
                 break;
@@ -78,14 +91,7 @@ class SignUp extends Component {
         this.setState({errors, [name]: value});
     }
 
-    handleSubmit = (event) => {
-        event.preventDefault();
-        if(validateForm(this.state.errors)) {
-            alert('Valid Form')
-        }else{
-            alert('Invalid Form')
-        }
-    }
+
     render() {
         const {errors} = this.state;
         return (
@@ -95,28 +101,28 @@ class SignUp extends Component {
                 <form className="sign-up_form" onSubmit={this.handleSubmit} noValidate>
                     <div className="text-container">
                         <div className="form-input">
-                            <input className="input-field" type="text" placeholder="first name" name="firstName" onChange={this.handleChange} formNoValidate/>
+                            <input className="input-field" type="text" placeholder="first name" name="firstName" onChange={this.handleChange} required/>
                             {errors.firstName.length > 0 &&
                             <span className='error'>{errors.firstName}</span>}
                         </div>
 
                         <div className="form-input">
-                            <input className="input-field" type="text" placeholder="last name" name="lastName" onChange={this.handleChange} formNoValidate/>
+                            <input className="input-field" type="text" placeholder="last name" name="lastName" onChange={this.handleChange} required/>
                             {errors.lastName.length > 0 && <span className='error'>{errors.lastName}</span>}
                         </div>
 
                         <div className="form-input">
-                            <input className="input-field"  type="text" placeholder="email address" name="email" onChange={this.handleChange} formNoValidate/>
+                            <input className="input-field"  type="email" placeholder="email address" name="email" onChange={this.handleChange} required/>
                             {errors.email.length > 0 && <span className='error'>{errors.email}</span>}
                         </div>
 
                         <div className="form-input">
 
-                            <input className="input-field" type="password" placeholder="password" name="password" onChange={this.handleChange} formNoValidate/>
+                            <input className="input-field" type="password" placeholder="password" name="password" onChange={this.handleChange} required/>
                             {errors.password.length > 0 && <span className='error'>{errors.password}</span>}
                         </div>
                         <div className="form-input">
-                            <input className="input-field" type="password" placeholder="confirm password" name="password2" onChange={this.handleChange} formNoValidate/>
+                            <input className="input-field" type="password" placeholder="confirm password" name="password2" onChange={this.handleChange} required/>
                             {errors.password2.length > 0 && <span className='error'>{errors.password2}</span>}
                         </div>
 
