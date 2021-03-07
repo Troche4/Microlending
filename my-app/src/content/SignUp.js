@@ -14,7 +14,7 @@ const validateForm = (errors) => {
     const d = document.getElementsByName("password")[0].value
     const e = document.getElementsByName("password2")[0].value
 
-    if ((a == null || a === ""), (b == null || b === ""), (c == null || c === "" ), (d == null || d === ""),(e == null || e === "")) {
+    if ((a == null || a === "")|| (b == null || b === "")|| (c == null || c === "")|| (d == null || d === "")|| (e == null || e === "")) {
         return false;
     }
     return valid;
