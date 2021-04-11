@@ -4,7 +4,7 @@ import {Link} from "react-router-dom";
 
 function NavHeader() {
     return (
-    <div className="nav-header">
+    <div className="header-navbar">
        <Link to="/signIn"><Button onClick={() => {console.log("You Clicked on Me!") }}
 
                 type = "button"

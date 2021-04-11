@@ -1,3 +1,5 @@
+
+
 CREATE TABLE borrowers (
     PRIMARY KEY borrower_id int NOT NULL SERIAL,
     balance int,

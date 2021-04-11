@@ -1,8 +1,8 @@
-.formContainer {
+.formContainerSignUp {
 
     display: flex;
     flex-direction:column;
-    margin:5% 10% 5% 10%;
+    margin: 7% auto;
     padding: 10px 10px 10px 10px;
     background: #FFFFFF;
     text-align: center;
@@ -33,7 +33,12 @@
 }
 .error{
     color: purple;
-    font-size: 10px;
+    font-size: 15px;
 }
+@media (max-width: 800px) {
+    .formContainerSignUp{
+        width: 100%;
 
+    }
 
+}

@@ -1,16 +1,28 @@
 .logo {
     background-color: #FFFFFF;
     grid-area: logo;
-    padding: 5px;
+
     display: flex;
     flex-direction: row;
     font-size: 30px;
-    color: #2EC4B6;
+    color: #006600;
     justify-content: center;
     align-items: center;
-
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 200px;
 
 }
-img{
-    height: 80%;
+
+.logo-image {
+    height: 100px;
+
+}
+
+@media (max-width: 800px) {
+    .logo {
+
+        padding-left: 0;
+    }
+
 }

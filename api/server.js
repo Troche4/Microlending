@@ -1,16 +1,27 @@
 const express = require("express");
 const bodyParser = require("body-parser");
-const queries = require("./queries.js");
-
+const queries = require("./queries");
+const cors = require("cors")
 const PORT = process.env.PORT || 3080;
-
 const app = express();
+app.use(cors());
+app.use(express.json());
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
     extended: true,
 }));
 
+//ROUTE//
+//signin and signup
+
+app.use("/authentication", require("../api/routes/jwtAuth"));
+
+app.use("/dashboard", require("../api/routes/dashboard"));
+
+
+
+/*
 app.get("/", (req, res) => {
     console.log("Hello from server");
 });
@@ -93,7 +104,9 @@ app.put("balance/:id", (req,res) => {
     console.log("Updating a user's balance");
 });
 
+*/
+
 //all endpoints should go above here
 app.listen(PORT, () => {
     console.log(`Server listening on ${PORT}`);
-})
+});

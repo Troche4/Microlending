@@ -1,13 +1,18 @@
+const db = require('./dbconfig');
 const Pool = require('pg').Pool
-const db = require('./dbconfig.js');
+
+
 const pool = new Pool({
   user: db.user,
   host: db.host,
   database: db.database,
   password: db.password,
-  port: db.port,
-})
+  port: db.port
+});
 
+module.exports = pool;
+
+/*
 //implement app.get(/loanpools)
 const getLoanPools = (request, response) => {
     pool.query("SELECT * FROM loans", (error, results) => {
@@ -36,7 +41,7 @@ const updateLoanInPool = (request, response) => {
             throw error;
         }
         response.status(200).send(`Loan updated.`)
-    }) 
+    })
 }
 
 //implement app.delete(/loanpools/:id)
@@ -54,4 +59,7 @@ const deleteLoan = (request, response) => {
 module.exports = {
     getLoanPools,
     deleteLoan,
+
+
 }
+*/

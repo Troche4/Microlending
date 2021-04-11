@@ -1,4 +1,19 @@
 .footer {
     background-color: #FBFCFC;
     grid-area: footer;
+}* { box-sizing: border-box; }
+
+.footer {
+    display: flex;
+    height: 20vh;
+    background-color: #F8F9F9;
+    margin: 0;
+
+}
+@media (max-width: 800px) {
+    .footer{
+        visibility: hidden;
+
+    }
+
 }

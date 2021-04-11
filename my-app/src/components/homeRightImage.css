@@ -1,0 +1,8 @@
+.right {
+    display: flex;
+    flex-direction: row;
+    flex:80%;
+    background: url("../contentBackground.svg") no-repeat;
+    background-size: cover;
+
+}

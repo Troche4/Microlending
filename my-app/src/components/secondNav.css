@@ -1,0 +1,43 @@
+nav {
+    background-color: #F8F9F9;
+    box-shadow: inset 0px 11px 8px -10px #CCC;
+
+}
+
+nav ul{
+    display: flex;
+    list-style-type: none;
+    justify-content: space-evenly;
+    padding: 20px;
+    text-transform: uppercase;
+    margin-right: 50px;
+    margin-left: 50px;
+    color: #006600;
+}
+
+/*************************************** LINKS ******************************************************/
+
+a:link, a:visited, a:hover, a:active, a:focus{
+    text-decoration: none;
+
+}
+* {
+    outline: none;
+}
+
+a {
+    color:#0E6655;
+}
+
+li> a:active, li > a:focus {
+    border-top: 0.187rem solid #5D6D7E;
+}
+li> a:hover {
+    border-top: 0.187rem solid #5D6D7E;
+    color: #5D6D7E;
+
+}
+
+.active {
+    border-top: 0.187rem solid #0E6655;
+}

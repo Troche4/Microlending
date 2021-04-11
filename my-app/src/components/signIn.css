@@ -1,14 +1,13 @@
-.formContainer {
-
+.formContainerSignIn{
     display: flex;
-    flex-direction:column;
-    margin:10% 30% 5% 10%;
+    flex-direction: column;
     padding: 10px 10px 10px 10px;
     background: #FFFFFF;
     text-align: center;
     box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
     box-sizing: content-box;
     width: 30%;
+    margin: 8% auto;
 }
 .text-container{
     font-family: "Roboto", sans-serif;
@@ -19,6 +18,7 @@
 }
 .form-input {
     margin: 15px;
+
 
 }
 .input-field{
@@ -31,7 +31,17 @@
     max-width: none !important;
 
 }
+
 .error{
     color: purple;
-    font-size: 10px;
+    font-size: 15px;
+}
+
+
+@media (max-width: 800px) {
+    .formContainerSignIn{
+        width: 100%;
+
+    }
+
 }
