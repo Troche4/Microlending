@@ -1,0 +1,11 @@
+module.exports = { 
+    database: {
+        user: '<username>',
+        host: 'localhost',
+        database: '<dbname>',
+        password: '<password>',
+        port: '5432'
+    }
+}
+
+title this file "dbconfig.js"

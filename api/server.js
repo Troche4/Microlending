@@ -1,5 +1,6 @@
 const express = require("express");
 const bodyParser = require("body-parser");
+const queries = require("queries");
 
 const PORT = process.env.PORT || 3080;
 
@@ -34,9 +35,7 @@ app.post("/borrowers", (req, res) => {
 
 // CRUD operations for loan pools, or the loans that are available to be applied for.
 
-app.get("/loanpools", (req, res) => {
-    console.log("Showing available loans");
-});
+app.get("/loanpools", queries.getLoanPools);
 
 app.post("/loanpools", (req, res) => {
     console.log("Adding a loan to the available loan pools");
@@ -46,9 +45,7 @@ app.put("/loanpools/:id", (req, res) => {
     console.log("Editing a loan in the loan pools");
 });
 
-app.delete("/loanpools/:id", (req, res) => {
-    console.log("Removing a loan from the available loan pools")
-});
+app.delete("/loanpools/:id", queries.deleteLoan);
 
 // CRUD operations for the applications to loans in the loan pool. (updates not allowed)
 
