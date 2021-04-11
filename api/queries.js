@@ -1,5 +1,5 @@
 const Pool = require('pg').Pool
-const db = require('dbconfig');
+const db = require('./dbconfig.js');
 const pool = new Pool({
   user: db.user,
   host: db.host,

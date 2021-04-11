@@ -1,6 +1,6 @@
 const express = require("express");
 const bodyParser = require("body-parser");
-const queries = require("queries");
+const queries = require("./queries.js");
 
 const PORT = process.env.PORT || 3080;
 

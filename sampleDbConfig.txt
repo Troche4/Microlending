@@ -8,4 +8,4 @@ module.exports = {
     }
 }
 
-title this file "dbconfig.js"
+title this file "dbconfig.js" and put it in the /api folder
