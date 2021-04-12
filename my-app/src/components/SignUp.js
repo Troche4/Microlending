@@ -46,7 +46,7 @@ const SignUp = ({ setAuth }) => {
     return (
 <Fragment>
     <div className="formContainerSignUp">
-
+        <h2>Sign Up</h2>
         <form onSubmit={onSubmitForm} className="sign-up_form" >
             <div className="text-container">
 
