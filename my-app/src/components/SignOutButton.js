@@ -6,6 +6,7 @@ import {toast} from "react-toastify";
 
 
 const SignOutButton = ( { setAuth } ) =>  {
+    console.log(setAuth)
 
     const logout = async e => {
         e.preventDefault();

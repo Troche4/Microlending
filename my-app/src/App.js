@@ -56,7 +56,7 @@ function App() {
                 <div className="body">
                     <div className="navContainer">
                         <LogoHeader />
-                        <NavHeader />
+                        <NavHeader isAuthenticated={isAuthenticated} setAuth={setAuth} />
 
                     </div>
 

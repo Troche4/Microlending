@@ -3,14 +3,14 @@ import SignOutButton from "./SignOutButton";
 import SignInButton from "./SignInButton";
 import {Fragment} from "react";
 
-const NavHeader = () => {
-
-
+const NavHeader = (props) => {
+    console.log(props)
 
     return (
         <Fragment>
         <div className="header-navbar">
-            <SignOutButton /> <SignInButton />
+            {props.isAuthenticated ? <SignOutButton setAuth={props.setAuth} /> : <SignInButton /> }
+
         </div>
         </Fragment>
     )
