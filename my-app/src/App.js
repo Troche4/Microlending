@@ -1,4 +1,4 @@
-import React, { Fragment, useState, } from "react";
+import React, { Fragment, useState, useEffect } from "react";
 import ReactDOM  from "react-dom";
 import { Redirect } from "react-router-dom";
 import './App.css';
@@ -13,14 +13,39 @@ import Dashboard from "./components/Dashboard";
 import Footer from "./components/Footer";
 import LogoHeader from "./components/LogoHeader";
 import NavHeader from "./components/NavHeader";
+import "react-toastify/dist/ReactToastify.css";
+import {toast} from "react-toastify";
+
+toast.configure();
+
 
 function App() {
 
+    const checkAuthenticated = async ( ) => {
+        try {
+            const res = await fetch("http://localhost:3080/authentication/verify", {
+                method: "POST",
+                headers: { jwt_token: localStorage.token }
+            });
+
+            const parseRes = await res.json();
+
+            parseRes === true ? setIsAuthenticated(true) : setIsAuthenticated(false);
+        } catch (err) {
+            console.error(err.message);
+        }
+    };
+
+    useEffect(() => {
+        checkAuthenticated();
+    }, []);
+
     const [isAuthenticated, setIsAuthenticated] = useState(false);
 
-    const setAuth = boolean => {
+     const setAuth = boolean => {
         setIsAuthenticated(boolean);
     };
+
 
 
     return (

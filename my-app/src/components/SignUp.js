@@ -7,7 +7,7 @@ import {Link} from "react-router-dom";
 const SignUp = ({ setAuth }) => {
 
     const [inputs, setInputs] = useState({
-
+        role: "",
         email: "",
         password: "",
         firstname: "",
@@ -15,7 +15,7 @@ const SignUp = ({ setAuth }) => {
 
     });
 
-    const {email, password, firstname, lastname} = inputs;
+    const {role, email, password, firstname, lastname} = inputs;
 
     const onChange = (e) => {
 
@@ -27,7 +27,7 @@ const SignUp = ({ setAuth }) => {
         e.preventDefault();
 
         try {
-            const body = { firstname, lastname, email, password }
+            const body = { role, firstname, lastname, email, password }
             const response = await fetch ("http://localhost:3080/authentication/signup",{
                 method: "post",
                 headers: {"Content-Type" : "application/json"},
@@ -49,6 +49,13 @@ const SignUp = ({ setAuth }) => {
 
         <form onSubmit={onSubmitForm} className="sign-up_form" >
             <div className="text-container">
+
+                <div className="form-input">
+                    <select className="input-field" type="text" placeholder="role" name="role" value={role} onChange={e=> onChange(e)}>
+                    <option>Banker</option>
+                    <option>Borrower</option>
+                    </select>
+                </div>
                 <div className="form-input">
                     <input className="input-field" type="text" placeholder="first name" name="firstname" value={firstname} onChange={e=> onChange(e)} />
                 </div>

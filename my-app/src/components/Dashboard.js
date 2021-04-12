@@ -9,17 +9,20 @@ const Dashboard = ({ setAuth }) => {
         try {
             const response = await fetch("http://localhost:3080/dashboard/", {
                 method: "GET",
-                headers: { token: localStorage.token }
+                headers: { jwt_token: localStorage.token }
             });
 
             const parseRes = await response.json();
-
             setFirstName(parseRes.user_firstname);
 
+            console.log(parseRes)
         } catch (err) {
             console.error(err.message);
         }
     };
+   useEffect(() => {
+       getFirstName();
+   });
 
     const logout = async e => {
         e.preventDefault();
@@ -40,7 +43,7 @@ const Dashboard = ({ setAuth }) => {
 
         <div>
             <h1>Dashboard</h1>
-            <h2>Welcome { firstname } </h2>
+            <h2>Welcome { firstname }</h2>
             <button  onClick={e => logout(e)}>SignOut</button>
 
         </div>
