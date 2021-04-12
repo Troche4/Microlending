@@ -20,16 +20,7 @@ const Dashboard = ({ setAuth }) => {
         }
     };
 
-    const logout = async e => {
-        e.preventDefault();
-        try {
-            localStorage.removeItem("token");
-            setAuth(false);
-            toast.success("Logout successfully");
-        } catch (err) {
-            console.error(err.message);
-        }
-    };
+
     useEffect(() => {
         getProfile();
     }, []);
@@ -42,7 +33,7 @@ const Dashboard = ({ setAuth }) => {
         <div>
             <h1>Dashboard</h1>
             <h2>Welcome { firstname }</h2>
-            <button  onClick={e => logout(e)}>SignOut</button>
+
 
         </div>
             </div>
