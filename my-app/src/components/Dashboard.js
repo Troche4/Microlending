@@ -2,27 +2,23 @@ import React, { Fragment, useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import SecondNav from "./SecondNav";
 
+
 const Dashboard = ({ setAuth }) => {
     const [firstname, setFirstName] = useState("");
 
-   async function getFirstName() {
+    const getProfile = async () => {
         try {
-            const response = await fetch("http://localhost:3080/dashboard/", {
-                method: "GET",
+            const res = await fetch("http://localhost:3080/dashboard/", {
+                method: "POST",
                 headers: { jwt_token: localStorage.token }
             });
 
-            const parseRes = await response.json();
-            setFirstName(parseRes.user_firstname);
-
-            console.log(parseRes)
+            const parseData = await res.json();
+            setFirstName(parseData.user_firstname);
         } catch (err) {
             console.error(err.message);
         }
     };
-   useEffect(() => {
-       getFirstName();
-   });
 
     const logout = async e => {
         e.preventDefault();
@@ -34,7 +30,9 @@ const Dashboard = ({ setAuth }) => {
             console.error(err.message);
         }
     };
-
+    useEffect(() => {
+        getProfile();
+    }, []);
 
     return (
         <Fragment>

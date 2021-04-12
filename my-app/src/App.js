@@ -16,7 +16,9 @@ import NavHeader from "./components/NavHeader";
 import "react-toastify/dist/ReactToastify.css";
 import {toast} from "react-toastify";
 
+
 toast.configure();
+
 
 
 function App() {
@@ -45,7 +47,6 @@ function App() {
      const setAuth = boolean => {
         setIsAuthenticated(boolean);
     };
-
 
 
     return (

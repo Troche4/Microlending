@@ -1,20 +1,18 @@
-import Button from "./Button";
 import "./navheader.css";
-import {Link} from "react-router-dom";
+import SignOutButton from "./SignOutButton";
+import SignInButton from "./SignInButton";
+import {Fragment} from "react";
 
+const NavHeader = () => {
 
-function NavHeader() {
 
 
     return (
+        <Fragment>
         <div className="header-navbar">
-            <Link to="/signIn"><Button onClick={() => {console.log("You Clicked on Me!") }}
-
-                                       type = "button"
-                                       buttonStyle="btn--primary--outline"
-                                       buttonSize="btn--small"
-            >Sign in</Button></Link>
+            <SignOutButton /> <SignInButton />
         </div>
+        </Fragment>
     )
 }
 export default NavHeader;

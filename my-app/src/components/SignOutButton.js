@@ -1,6 +1,6 @@
 import {Link} from "react-router-dom";
 import Button from "./Button";
-import React, {useState} from "react";
+import React, {Fragment} from "react";
 import {toast} from "react-toastify";
 
 
@@ -17,7 +17,10 @@ const SignOutButton = ( { setAuth } ) =>  {
             console.error(err.message);
         }
     };
+
+
     return (
+        <Fragment>
         <div>
 
             <Link to ="/"><Button onClick={e => logout(e)}
@@ -26,6 +29,7 @@ const SignOutButton = ( { setAuth } ) =>  {
                                    buttonSize="btn--small"
             >Sign out</Button></Link>
         </div>
+        </Fragment>
     )
 };
 
