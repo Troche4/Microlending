@@ -13,7 +13,7 @@ const SignOutButton = ( { setAuth } ) =>  {
         try {
             localStorage.removeItem("token");
             setAuth(false);
-            toast.success("Logout successfully");
+            toast.success("Logged out successfully");
         } catch (err) {
             console.error(err.message);
         }
