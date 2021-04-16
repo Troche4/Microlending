@@ -19,6 +19,8 @@ app.use("/authentication", require("../api/routes/jwtAuth"));
 
 app.use("/dashboard", require("../api/routes/dashboard"));
 
+app.use("/api", require("../api/routes/dashboard"));
+
 
 
 /*

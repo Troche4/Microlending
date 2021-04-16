@@ -3,7 +3,10 @@ import SecondNav from "./SecondNav";
 
 
 const Dashboard = ({ setAuth }) => {
-    const [firstname, setFirstName] = useState("");
+    const [firstname, setFirstName,] = useState("");
+    const [lastname, setLastName,] = useState("");
+    const [role_id, setRoleId,] = useState("");
+
 
     const getProfile = async () => {
         try {
@@ -14,6 +17,10 @@ const Dashboard = ({ setAuth }) => {
 
             const parseData = await res.json();
             setFirstName(parseData.user_firstname);
+            setLastName(parseData.user_lastname);
+            setRoleId(parseData.role_id);
+
+
         } catch (err) {
             console.error(err.message);
         }
@@ -31,7 +38,7 @@ const Dashboard = ({ setAuth }) => {
 
         <div>
             <h1>Dashboard</h1>
-            <h2>Welcome { firstname }</h2>
+            <h2>Welcome {firstname} {lastname} {role_id} </h2>
 
 
         </div>
