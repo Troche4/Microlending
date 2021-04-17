@@ -1,6 +1,7 @@
+
 import React, { Fragment, useState, useEffect } from "react";
 import ReactDOM  from "react-dom";
-import { Redirect } from "react-router-dom";
+import { Redirect, useHistory } from "react-router-dom";
 import './App.css';
 import {
     BrowserRouter as Router,
@@ -15,14 +16,15 @@ import LogoHeader from "./components/LogoHeader";
 import NavHeader from "./components/NavHeader";
 import "react-toastify/dist/ReactToastify.css";
 import {toast} from "react-toastify";
-
+import Dashboard2 from "./components/Dasboard2";
+import Axios from 'axios';
 
 toast.configure();
 
 
 
 function App() {
-
+    const history = useHistory()
     const checkAuthenticated = async ( ) => {
         try {
             const res = await fetch("http://localhost:3080/authentication/verify", {
@@ -44,14 +46,43 @@ function App() {
 
     const [isAuthenticated, setIsAuthenticated] = useState(false);
 
-     const setAuth = boolean => {
+    const setAuth = boolean => {
         setIsAuthenticated(boolean);
     };
 
 
+
+    //_______________________________________________CURRENTLY WORKING ON ROLE BASE ROUTING _____________________//
+
+
+    const [role_id, setRoleId,] = useState("");
+
+
+    const getProfile = async () => {
+        try {
+            const res = await fetch("http://localhost:3080/dashboard/", {
+                method: "POST",
+                headers: { jwt_token: localStorage.token }
+            });
+
+            const parseData = await res.json();
+            setRoleId(parseData.role_id);
+
+        } catch (err) {
+            console.error(err.message);
+        }
+    };
+
+    useEffect(() => {
+        getProfile();
+    }, []);
+
+
+
+//______________________________________________________CURRENTLY WORKING ON ROLE BASED ROUTING_____________________//
     return (
         <Fragment>
-        <Router>
+            <Router>
 
                 <div className="body">
                     <div className="navContainer">
@@ -64,14 +95,14 @@ function App() {
                         <Switch>
                             <Route exact path="/" component={Home} />
                             <Route exact path="/signup" render={props => !isAuthenticated ? (<SignUp {...props} setAuth={setAuth} />) : (<Redirect to="/signin" />)}/>
-                            <Route exact path="/signin" render={props => !isAuthenticated ? (<SignIn {...props} setAuth={setAuth} />) : (<Redirect to="/dashboard" />)}/>
+                            <Route exact path="/signin" render={props => !isAuthenticated ? (<SignIn {...props} setAuth={setAuth}  />) : (<Redirect to="/dashboard" />)}/>
                             <Route exact path="/dashboard" render={props => isAuthenticated ? (<Dashboard {...props} setAuth={setAuth} />) : (<Redirect to="/signin" />)}/>
-
+                            <Route exact path="/dashboard2" render={props => isAuthenticated ? (<Dashboard2 {...props} setAuth={setAuth} />) : (<Redirect to="/signin" />)}/>
                         </Switch>
                     </div>
                     <Footer />
                 </div>
-        </Router>
+            </Router>
         </Fragment>
     );
 }
@@ -79,4 +110,3 @@ function App() {
 export default App;
 const rootElement = document.getElementById("root");
 ReactDOM.render(<App />, rootElement);
-

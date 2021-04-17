@@ -1,0 +1,11 @@
+* {
+    box-sizing: border-box;
+}
+.dashboard-container {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    flex-basis: 100%;
+    min-width: 0;
+
+}

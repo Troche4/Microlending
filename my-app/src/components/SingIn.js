@@ -1,15 +1,17 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useEffect } from 'react';
 import "./signIn.css";
-import {Link} from "react-router-dom";
+import {Link, useHistory} from "react-router-dom";
 import {useState} from "react";
 import {toast} from "react-toastify";
 
 const SignIn = ({ setAuth }) => {
+    const history = useHistory()
 
     const [inputs, setInputs] = useState({
         email: "",
         password: ""
     });
+
 
 
     const { email, password } = inputs;
@@ -39,6 +41,7 @@ const SignIn = ({ setAuth }) => {
                 localStorage.setItem("token", parseRes.jwtToken);
                 setAuth(true);
                 toast.success("Logged in Successfully");
+                console.log(parseRes)
             } else {
                 setAuth(false);
                 toast.error(parseRes);

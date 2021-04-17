@@ -66,6 +66,7 @@ const SignUp = ({ setAuth }) => {
                 setAuth(false);
                 toast.error(parseRes);
             }
+
         } catch (err) {
             console.error(err.message);
         }
