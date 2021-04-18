@@ -1,11 +1,25 @@
-* {
-    box-sizing: border-box;
-}
 .dashboard-container {
-    display: flex;
+    display:flex;
     flex-direction: column;
     margin: 0;
-    flex-basis: 100%;
-    min-width: 0;
+
+}
+
+.row{
+    display: flex;
+    margin: 0;
+    flex-grow: 1;
+    padding: 20px;
+}
+
+.column1 {
+    flex: 30%;
+    margin: 0;
+    flex-grow: 1;
+}
+.column2 {
+    flex: 70%;
+    margin: 0;
+    flex-grow: 1;
 
 }

@@ -1,4 +1,3 @@
-
 import React, { Fragment, useState, useEffect } from "react";
 import ReactDOM  from "react-dom";
 import { Redirect, useHistory } from "react-router-dom";
@@ -17,7 +16,7 @@ import NavHeader from "./components/NavHeader";
 import "react-toastify/dist/ReactToastify.css";
 import {toast} from "react-toastify";
 import Dashboard2 from "./components/Dasboard2";
-import Axios from 'axios';
+
 
 toast.configure();
 

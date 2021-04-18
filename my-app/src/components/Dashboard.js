@@ -1,7 +1,7 @@
 import React, { Fragment, useEffect, useState } from "react";
 import SecondNav from "./SecondNav";
 import {useHistory} from "react-router-dom";
-
+import './dashboard.css';
 
 const Dashboard = ({ setAuth }) => {
     const [firstname, setFirstName,] = useState("");
@@ -37,18 +37,22 @@ const Dashboard = ({ setAuth }) => {
     }, []);
 
     return (
-        <Fragment>
-        <div className="dashboard-container">
-            <SecondNav />
 
-        <div>
-            <h1>Lender Dashboard</h1>
-            <h2>Welcome {firstname} {lastname} {role_id} </h2>
+            <div className='dashboard-container'>
+                <SecondNav />
+                <div className="row">
+                    <div className="column1">
+                        <h3>Column1</h3>
+                        <h1>Lender Dashboard</h1>
+                        <h2>Welcome {firstname} {lastname}  </h2>
 
-
-        </div>
+                    </div>
+                    <div className="column2">
+                        <h3>Column 2</h3>
+                    </div>
+                </div>
             </div>
-        </Fragment>
+
     )
 };
 

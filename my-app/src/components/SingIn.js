@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect } from 'react';
+import React, { Fragment } from 'react';
 import "./signIn.css";
 import {Link, useHistory} from "react-router-dom";
 import {useState} from "react";
