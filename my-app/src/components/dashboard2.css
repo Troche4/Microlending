@@ -23,3 +23,15 @@
     flex-grow: 1;
 
 }
+
+.card-container {
+    padding:0.01em 16px;
+    margin-top:16px;margin-bottom:16px
+}
+
+.card-1 {box-shadow:0 4px 10px 0 rgba(0,0,0,0.2),0 4px 20px 0 rgba(0,0,0,0.19)}
+
+.card-container .light-grey {
+    color:#000;
+    background-color:#f1f1f1;
+}

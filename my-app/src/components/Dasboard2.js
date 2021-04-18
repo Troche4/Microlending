@@ -1,7 +1,7 @@
 import './dashboard2.css';
-
 import React, { Fragment, useEffect, useState } from "react";
 import SecondNav from "./SecondNav";
+
 
 
 const Dashboard2 = ({ setAuth }) => {
@@ -28,7 +28,6 @@ const Dashboard2 = ({ setAuth }) => {
         }
     };
 
-
     useEffect(() => {
         getProfile();
     }, []);
@@ -39,17 +38,25 @@ const Dashboard2 = ({ setAuth }) => {
             <SecondNav />
             <div className="row">
                 <div className="column1">
-                    <h3>Column1</h3>
-                    <h1>Borrower Dashboard</h1>
-                    <h2>Welcome {firstname} {lastname}  </h2>
+                    <div className="card-container">
 
+                        <div className="card-1"style={{width: "70%"}}>
+                            <header className="card-container light-grey">
+                                <h3>Borrower: {firstname} {lastname} </h3>
+                            </header>
+                            <div className="card-container">
+                                <p>Loan Requests:</p>
+                            </div>
+
+                        </div>
+                    </div>
                 </div>
+
                 <div className="column2">
                     <h3>Column 2</h3>
                 </div>
             </div>
         </div>
-
 
     )
 };

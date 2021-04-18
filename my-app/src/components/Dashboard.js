@@ -42,9 +42,18 @@ const Dashboard = ({ setAuth }) => {
                 <SecondNav />
                 <div className="row">
                     <div className="column1">
-                        <h3>Column1</h3>
-                        <h1>Lender Dashboard</h1>
-                        <h2>Welcome {firstname} {lastname}  </h2>
+                        <div className="card-container">
+
+                            <div className="card-1"style={{width: "70%"}}>
+                                <header className="card-container light-grey">
+                                    <h3>Bank Manager: {firstname} {lastname} </h3>
+                                </header>
+                                <div className="card-container">
+                                    <p>Loan to be approved:</p>
+                                </div>
+
+                            </div>
+                        </div>
 
                     </div>
                     <div className="column2">

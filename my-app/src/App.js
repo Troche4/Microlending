@@ -51,9 +51,6 @@ function App() {
 
 
 
-    //_______________________________________________CURRENTLY WORKING ON ROLE BASE ROUTING _____________________//
-
-
     const [role_id, setRoleId,] = useState("");
 
 
@@ -78,7 +75,6 @@ function App() {
 
 
 
-//______________________________________________________CURRENTLY WORKING ON ROLE BASED ROUTING_____________________//
     return (
         <Fragment>
             <Router>
