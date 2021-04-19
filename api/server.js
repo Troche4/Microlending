@@ -50,13 +50,9 @@ app.post("/borrowers", (req, res) => {
 
 app.get("/loanpools", queries.getLoanPools);
 
-app.post("/loanpools", (req, res) => {
-    console.log("Adding a loan to the available loan pools");
-});
+app.post("/loanpools", queries.postNewLoanPool);
 
-app.put("/loanpools/:id", (req, res) => {
-    console.log("Editing a loan in the loan pools");
-});
+app.put("/loanpools/:id", queries.updateLoanInPool);
 
 app.delete("/loanpools/:id", queries.deleteLoan);
 

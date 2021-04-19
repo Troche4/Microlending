@@ -59,7 +59,7 @@ const deleteLoan = (request, response) => {
 module.exports = {
     getLoanPools,
     deleteLoan,
-
-
+    updateLoanInPool,
+    postNewLoanPool
 }
 */
