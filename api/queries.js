@@ -29,7 +29,7 @@ const postNewLoanPool = (request, response) => {
         if (error) {
             throw error;
         }
-        response.status(200).send(`Loan created.`)
+        response.status(201).send(`Loan created.`)
     })
 }
 
@@ -40,7 +40,7 @@ const updateLoanInPool = (request, response) => {
         if (error) {
             throw error;
         }
-        response.status(200).send(`Loan updated.`)
+        response.status(201).send(`Loan updated.`)
     })
 }
 
