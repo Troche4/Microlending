@@ -49,11 +49,8 @@ app.post("/borrowers", (req, res) => {
 // CRUD operations for loan pools, or the loans that are available to be applied for.
 
 app.get("/loanpools", queries.getLoanPools);
-
 app.post("/loanpools", queries.postNewLoanPool);
-
 app.put("/loanpools/:id", queries.updateLoanInPool);
-
 app.delete("/loanpools/:id", queries.deleteLoan);
 
 // CRUD operations for the applications to loans in the loan pool. (updates not allowed)
@@ -90,17 +87,9 @@ app.delete("/loans/:borrowerid/:loanid", (req,res) => {
 
 // CRUD operations for a user's balance. (delete not supported)
 
-app.get("balance/:id", (req,res) => {
-    console.log("Showing a user's balance");
-});
-
-app.post("balance/:id", (req, res) => {
-    console.log("Initializing a user's balance");
-});
-
-app.put("balance/:id", (req,res) => {
-    console.log("Updating a user's balance");
-});
+app.get("balance/:id", queries.getLoanById);
+app.post("balance/:id", queries.postBalanceById);
+app.put("balance/:id", updateBalanceById);
 
 */
 

@@ -55,11 +55,49 @@ const deleteLoan = (request, response) => {
     })
 }
 
+*/
+
+//implement app.get(/balance/:id)
+const getBalanceById = (request, response) => {
+    const id = parseInt(request.params.id);
+    pool.query("SELECT balance FROM users WHERE user_id = $1", [id], (error, results) => {
+        if (error) {
+            throw error;
+        }
+        response.status(200).json(results.rows);
+    });
+}
+
+const postBalanceById = (request, response) => {
+    const id = parseInt(request.params.id);
+    const balance = parseInt(request.params.balance) || 0;
+    pool.query("INSERT INTO users (balance) VALUES $1 WHERE user_id = $2", [balance, id], (error, results) => {
+        if (error) {
+            throw error;
+        }
+        response.status(201).send(`Balance initialized.`);
+    });
+}
+
+const updateBalanceById = (request, response) => {
+    const id = parseInt(request.params.id);
+    const newBalance = parseInt(request.params.balance) || 0;
+    pool.query("UPDATE users SET balance = $1 WHERE user_id = $2", [newBalance, id], (error, results) => {
+        if (error){
+            throw error;
+        }
+        response.status(201).send(`Balance updated to ${newBalance}.`)
+    });
+}
+
+
 //update this with every new function
 module.exports = {
     getLoanPools,
     deleteLoan,
     updateLoanInPool,
-    postNewLoanPool
+    postNewLoanPool,
+    getBalanceById,
+    postBalanceById,
+    updateBalanceById
 }
-*/
