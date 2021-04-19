@@ -35,19 +35,11 @@ app.post("/loanpools", queries.postNewLoanPool);
 app.put("/loanpools/:id", queries.updateLoanInPool);
 app.delete("/loanpools/:id", queries.deleteLoan);
 
-// CRUD operations for the applications to loans in the loan pool. (updates not allowed)
+// CRUD operations for the applications to loans in the loan pool. (updates not supported)
 
-app.get("/applications/:loanid", (req, res) => {
-    console.log("Showing an active loan's applications")
-});
-
-app.post("/applications", (req, res) => {
-    console.log("Applying for a loan")
-});
-
-app.delete("/applications/:id", (req, res) => {
-    console.log("Denying an application");
-});
+app.get("/applications/:loan_id", queries.getApplicationsByLoanId);
+app.post("/applications/:loan_id/:borrowerid", queries.applyForLoanByLoanId);
+app.delete("/applications/:loanid/:borrowerid", queries.deleteApplicationByLoanID);
 
 // CRUD operations for approved loans, or loans where the application was accepted.
 

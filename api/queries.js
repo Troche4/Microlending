@@ -23,6 +23,7 @@ const getLoanPools = (request, response) => {
     });
 }
 
+//implement app.post(/loanpools)
 const postNewLoanPool = (request, response) => {
     const { duration, principal, interest } = request.body;
     pool.query("INSERT INTO loans (duration, pincipal, interest) VALUES $1, $2, $3", [duration, principal, interest], (error, results) => {
@@ -33,6 +34,7 @@ const postNewLoanPool = (request, response) => {
     })
 }
 
+//implement app.put(/loanpools/:id)
 const updateLoanInPool = (request, response) => {
     const id = parseInt(request.params.id);
     const { duration, principal, interest } = request.body;
@@ -54,6 +56,42 @@ const deleteLoan = (request, response) => {
         response.status(200).send(`Loan deleted with id: ${id}`);
     })
 }
+
+//implement app.get(/applications/:loanid)
+const getApplicationsByLoanId = (request, response) => {
+    const loan_id = parseInt(request.params.loan_id);
+    pool.query("SELECT * FROM applies WHERE loan_id = $1", [loan_id], (error, results) => {
+        if (error) {
+            throw error;
+        }
+        response.status(200).json(results.rows);
+    })
+}
+
+//implement app.post(/applications/:loanid/:borrowerid)
+const applyForLoanByLoanId = (request, response) => {
+    const loan_id = parseInt(request.params.loan_id);
+    const user_id = parseInt(request.params.borrower_id);
+    pool.query("INSERT INTO applies (borrower_id, loan_id) VALUES $1, $2", [user_id, loan_id], (error, results) => {
+        if (error) {
+            throw error;
+        }
+        response.status(201).send(`Applied for loan.`)
+    })
+}
+
+//implement app.delete(/applications/:loanid/:borrowerid)
+const deleteApplicationByLoanID = (request, response) => {
+    const loan_id = parseInt(request.params.loan_id);
+    const user_id = parseInt(request.params.borrower_id);
+    pool.query("DELETE FROM applies where loan_id = $1 AND borrower_id = $2", [loan_id, borrower_id], (error, results) => {
+        if (error) {
+            throw error;
+        }
+        response.status(200).send(`Application deleted.`)
+    });
+}
+
 
 //implement app.get(/balance/:user_id)
 const getBalanceById = (request, response) => {
@@ -90,7 +128,7 @@ const updateBalanceById = (request, response) => {
     });
 }
 
-
+*/
 
 //update this with every new function
 module.exports = {
@@ -100,7 +138,8 @@ module.exports = {
     postNewLoanPool,
     getBalanceById,
     postBalanceById,
-    updateBalanceById
+    updateBalanceById,
+    getApplicationsByLoanId,
+    applyForLoanByLoanId,
+    deleteApplicationByLoanID
 }
-
-*/
