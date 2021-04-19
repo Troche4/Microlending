@@ -25,6 +25,7 @@ CREATE TABLE borrowers (
 CREATE TABLE borrows (
     borrower_id int,
     loan_id int,
+    amount_due decimal,
     CONSTRAINT loan_id FOREIGN KEY (loan_id) REFERENCES loans(loan_id) ON DELETE SET NULL,
     CONSTRAINT borrower_id FOREIGN KEY (borrower_id) REFERENCES borrowers(borrower_id) ON DELETE SET NULL,
 );
@@ -41,7 +42,6 @@ CREATE TABLE loans (
     duration int,
     principal decimal NOT NULL,
     interest decimal NOT NULL,
-    amount_due decimal
 );
 
 CREATE TABLE lends (
