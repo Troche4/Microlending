@@ -55,9 +55,7 @@ const deleteLoan = (request, response) => {
     })
 }
 
-*/
-
-//implement app.get(/balance/:id)
+//implement app.get(/balance/:user_id)
 const getBalanceById = (request, response) => {
     const id = parseInt(request.params.id);
     pool.query("SELECT balance FROM users WHERE user_id = $1", [id], (error, results) => {
@@ -68,6 +66,7 @@ const getBalanceById = (request, response) => {
     });
 }
 
+//implement app.post(/balance/:user_id)
 const postBalanceById = (request, response) => {
     const id = parseInt(request.params.id);
     const balance = parseInt(request.params.balance) || 0;
@@ -79,6 +78,7 @@ const postBalanceById = (request, response) => {
     });
 }
 
+//implement app.put(/balance/:user_id)
 const updateBalanceById = (request, response) => {
     const id = parseInt(request.params.id);
     const newBalance = parseInt(request.params.balance) || 0;
@@ -91,6 +91,7 @@ const updateBalanceById = (request, response) => {
 }
 
 
+
 //update this with every new function
 module.exports = {
     getLoanPools,
@@ -101,3 +102,5 @@ module.exports = {
     postBalanceById,
     updateBalanceById
 }
+
+*/

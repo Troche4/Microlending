@@ -28,24 +28,6 @@ app.get("/", (req, res) => {
     console.log("Hello from server");
 });
 
-// CRUD operations for both account types. (Update, Delete not supported)
-
-app.get("/lenders/:lenderid", (req,res) => {
-    console.log("Getting lender account data");
-});
-
-app.get("borrowers/:borrowerid", (req,res) => {
-    console.log("Getting borrower account data");
-});
-
-app.post("/lenders", (req, res) => {
-    console.log("Creating new bank manager pofile");
-});
-
-app.post("/borrowers", (req, res) => {
-    console.log("Creating new borrower account");
-});
-
 // CRUD operations for loan pools, or the loans that are available to be applied for.
 
 app.get("/loanpools", queries.getLoanPools);
@@ -87,9 +69,9 @@ app.delete("/loans/:borrowerid/:loanid", (req,res) => {
 
 // CRUD operations for a user's balance. (delete not supported)
 
-app.get("balance/:id", queries.getLoanById);
-app.post("balance/:id", queries.postBalanceById);
-app.put("balance/:id", updateBalanceById);
+app.get("balance/:user_id", queries.getLoanById);
+app.post("balance/:user_id", queries.postBalanceById);
+app.put("balance/:user_id", updateBalanceById);
 
 */
 
