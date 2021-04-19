@@ -45,12 +45,11 @@ app.post("/loans/:loanid/:borrowerid", queries.addLoanToBorrowerAccountById); //
 app.put("/loans/:loanid/:borrowerid", queries.updateAmountDue);
 app.delete("/loans/:loanid/:borrowerid", queries.closeLoan);
 
-// CRUD operations for a user's balance. (delete not supported
+// CRUD operations for a user's balance. (delete not supported)
 
-
-app.get("balance/:user_id", queries.getLoanById);
+app.get("balance/:user_id", queries.getBalanceById);
 app.post("balance/:user_id", queries.postBalanceById);
-app.put("balance/:user_id", updateBalanceById);
+app.put("balance/:user_id", queries.updateBalanceById);
 
 //all endpoints should go above here
 app.listen(PORT, () => {
