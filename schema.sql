@@ -39,8 +39,9 @@ CREATE TABLE applies (
 CREATE TABLE loans (
     PRIMARY KEY loan_id int NOT NULL SERIAL,
     duration int,
-    principal int NOT NULL,
+    principal decimal NOT NULL,
     interest decimal NOT NULL,
+    amount_due decimal
 );
 
 CREATE TABLE lends (

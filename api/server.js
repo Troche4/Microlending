@@ -55,8 +55,8 @@ app.delete("/loanpools/:id", queries.deleteLoan);
 
 // CRUD operations for the applications to loans in the loan pool. (updates not allowed)
 
-app.get("/applications", (req, res) => {
-    console.log("Showing active loan applications")
+app.get("/applications/:loanid", (req, res) => {
+    console.log("Showing an active loan's applications")
 });
 
 app.post("/applications", (req, res) => {
