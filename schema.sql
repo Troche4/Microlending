@@ -1,3 +1,11 @@
+DROP TABLE IF EXISTS user_role;
+DROP TABLE IF EXISTS users;
+DROP TABLE IF EXISTS borrowers;
+DROP TABLE IF EXISTS loans;
+DROP TABLE IF EXISTS lenders;
+DROP TABLE IF EXISTS borrows;
+DROP TABLE IF EXISTS applies;
+DROP TABLE IF EXISTS lends;
 
 CREATE TABLE user_role (
 role_id SERIAL PRIMARY KEY,
@@ -18,8 +26,20 @@ CREATE TABLE users(
 
 
 CREATE TABLE borrowers (
-     borrower_id int PRIMARY KEY NOT NULL SERIAL,
-    balance int,
+    borrower_id int PRIMARY KEY NOT NULL,
+    balance int
+);
+
+CREATE TABLE loans (
+    loan_id int PRIMARY KEY NOT NULL SERIAL,
+    duration int,
+    principal decimal NOT NULL,
+    interest decimal NOT NULL
+);
+
+CREATE TABLE lenders (
+    lender_id int PRIMARY KEY NO NULL SERIAL,
+    bank_name varchar(45)
 );
 
 CREATE TABLE borrows (
@@ -27,31 +47,19 @@ CREATE TABLE borrows (
     loan_id int,
     amount_due decimal,
     CONSTRAINT loan_id FOREIGN KEY (loan_id) REFERENCES loans(loan_id) ON DELETE SET NULL,
-    CONSTRAINT borrower_id FOREIGN KEY (borrower_id) REFERENCES borrowers(borrower_id) ON DELETE SET NULL,
+    CONSTRAINT borrower_id FOREIGN KEY (borrower_id) REFERENCES borrowers(borrower_id) ON DELETE SET NULL
 );
 
 CREATE TABLE applies (
     borrower_id int,
     loan_id int,
     CONSTRAINT loan_id FOREIGN KEY (loan_id) REFERENCES loans(loan_id) ON DELETE SET NULL,
-    CONSTRAINT borrower_id FOREIGN KEY (borrower_id) REFERENCES borrowers(borrower_id) ON DELETE SET NULL,
-);
-
-CREATE TABLE loans (
-    loan_id int PRIMARY KEY NOT NULL SERIAL,
-    duration int,
-    principal decimal NOT NULL,
-    interest decimal NOT NULL,
+    CONSTRAINT borrower_id FOREIGN KEY (borrower_id) REFERENCES borrowers(borrower_id) ON DELETE SET NULL
 );
 
 CREATE TABLE lends (
     loan_id int,
     lender_id int,
     CONSTRAINT loan_id FOREIGN KEY (loan_id) REFERENCES loans(loan_id) ON DELETE SET NULL,
-    CONSTRAINT lender_id FOREIGN KEY (lender_id) REFERENCES lenders(lender_id) ON DELETE SET NULL,
-);
-
-CREATE TABLE lenders (
-    lender_id int PRIMARY KEY NO NULL SERIAL,
-    bank_name varchar(45)
+    CONSTRAINT lender_id FOREIGN KEY (lender_id) REFERENCES lenders(lender_id) ON DELETE SET NULL
 );
