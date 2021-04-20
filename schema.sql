@@ -1,8 +1,8 @@
 DROP TABLE IF EXISTS user_role;
 DROP TABLE IF EXISTS users;
-DROP TABLE IF EXISTS borrowers;
-DROP TABLE IF EXISTS loans;
-DROP TABLE IF EXISTS lenders;
+DROP TABLE IF EXISTS borrowers CASCADE;
+DROP TABLE IF EXISTS loans CASCADE;
+DROP TABLE IF EXISTS lenders CASCADE;
 DROP TABLE IF EXISTS borrows;
 DROP TABLE IF EXISTS applies;
 DROP TABLE IF EXISTS lends;
@@ -31,14 +31,14 @@ CREATE TABLE borrowers (
 );
 
 CREATE TABLE loans (
-    loan_id int PRIMARY KEY NOT NULL SERIAL,
+    loan_id int PRIMARY KEY NOT NULL,
     duration int,
     principal decimal NOT NULL,
     interest decimal NOT NULL
 );
 
 CREATE TABLE lenders (
-    lender_id int PRIMARY KEY NO NULL SERIAL,
+    lender_id int PRIMARY KEY NOT NULL,
     bank_name varchar(45)
 );
 
