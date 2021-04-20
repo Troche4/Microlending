@@ -18,7 +18,7 @@ CREATE TABLE users(
 
 
 CREATE TABLE borrowers (
-    PRIMARY KEY borrower_id int NOT NULL SERIAL,
+     borrower_id int PRIMARY KEY NOT NULL SERIAL,
     balance int,
 );
 
@@ -38,7 +38,7 @@ CREATE TABLE applies (
 );
 
 CREATE TABLE loans (
-    PRIMARY KEY loan_id int NOT NULL SERIAL,
+    loan_id int PRIMARY KEY NOT NULL SERIAL,
     duration int,
     principal decimal NOT NULL,
     interest decimal NOT NULL,
@@ -52,6 +52,6 @@ CREATE TABLE lends (
 );
 
 CREATE TABLE lenders (
-    PRIMARY KEY lender_id int NO NULL SERIAL,
+    lender_id int PRIMARY KEY NO NULL SERIAL,
     bank_name varchar(45)
 );

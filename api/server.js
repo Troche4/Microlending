@@ -25,7 +25,7 @@ app.get("/", (req, res) => {
     console.log("Hello from server");
 });
 
-// CRUD operations for loan pools, or the loans that are available to be applied for.
+// CRUD operations for loan pools, or the loans that are available to be applied for. (Only bank manager can use these)
 
 app.get("/loanpools", queries.getLoanPools);
 app.post("/loanpools", queries.postNewLoanPool);
