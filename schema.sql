@@ -1,11 +1,13 @@
 DROP TABLE IF EXISTS user_role;
 DROP TABLE IF EXISTS users;
-DROP TABLE IF EXISTS borrowers CASCADE;
-DROP TABLE IF EXISTS loans CASCADE;
-DROP TABLE IF EXISTS lenders CASCADE;
+DROP TABLE IF EXISTS borrowers;
+DROP TABLE IF EXISTS loans;
+DROP TABLE IF EXISTS lenders;
 DROP TABLE IF EXISTS borrows;
 DROP TABLE IF EXISTS applies;
 DROP TABLE IF EXISTS lends;
+
+CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
 
 CREATE TABLE user_role (
 role_id SERIAL PRIMARY KEY,
@@ -31,14 +33,14 @@ CREATE TABLE borrowers (
 );
 
 CREATE TABLE loans (
-    loan_id int PRIMARY KEY NOT NULL,
+    loan_id SERIAL PRIMARY KEY NOT NULL,
     duration int,
     principal decimal NOT NULL,
     interest decimal NOT NULL
 );
 
 CREATE TABLE lenders (
-    lender_id int PRIMARY KEY NOT NULL,
+    lender_id SERIAL PRIMARY KEY NOT NULL,
     bank_name varchar(45)
 );
 
