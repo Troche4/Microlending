@@ -13,7 +13,6 @@ const SignIn = ({ setAuth }) => {
     });
 
 
-
     const { email, password } = inputs;
 
     const onChange = e =>

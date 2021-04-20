@@ -1,6 +1,6 @@
 const router = require("express").Router();
 const authorize = require("../middleware/authorize");
-const pool = require("../queries");
+const pool = require("../db");
 
 router.get('/roles', async (req, res) => {
     const roles = await  pool.query("SELECT * FROM user_role");

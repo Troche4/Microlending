@@ -1,11 +1,10 @@
 const express = require("express");
 const router = express.Router();
-const bcrypt = require("bcrypt");
-const pool = require("../queries");
+const pool = require("../db");
 const validInfo = require("../middleware/validInfo");
 const jwtGenerator = require("../utils/jwtGenerator");
 const authorize = require("../middleware/Authorize");
-
+const bcrypt = require("bcrypt");
 
 router.post("/signup", validInfo, async (req, res) => {
     const { role_id, email, firstname, lastname, password } = req.body;

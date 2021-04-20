@@ -11,6 +11,10 @@
     flex-grow: 1;
     padding: 20px;
 }
+.row h3{
+    color: #424949;
+}
+
 
 .column1 {
     flex: 30%;

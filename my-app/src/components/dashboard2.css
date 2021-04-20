@@ -5,6 +5,7 @@
 
 }
 
+
 .row{
     display: flex;
     margin: 0;
@@ -22,6 +23,9 @@
     margin: 0;
     flex-grow: 1;
 
+}
+.row h3{
+    color: #424949;
 }
 
 .card-container {

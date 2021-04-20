@@ -45,7 +45,15 @@ const Dashboard2 = ({ setAuth }) => {
                                 <h3>Borrower: {firstname} {lastname} </h3>
                             </header>
                             <div className="card-container">
-                                <p>Loan Requests:</p>
+                                <ul>
+                                    <li>Loan Request 1</li>
+                                    <li>Loan Request 2</li>
+                                    <li>Loan Request 3</li>
+                                    <li>Loan Request 4</li>
+                                    <li>Loan Request 5</li>
+
+
+                                </ul>
                             </div>
 
                         </div>
@@ -53,7 +61,7 @@ const Dashboard2 = ({ setAuth }) => {
                 </div>
 
                 <div className="column2">
-                    <h3>Column 2</h3>
+                    <h3>Available Loans</h3>
                 </div>
             </div>
         </div>

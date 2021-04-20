@@ -1,16 +1,4 @@
-const db = require('./dbconfig');
-const Pool = require('pg').Pool
-
-
-const pool = new Pool({
-  user: db.user,
-  host: db.host,
-  database: db.database,
-  password: db.password,
-  port: db.port
-});
-
-module.exports = pool;
+const pool = require("./db");
 
 
 //implement app.get(/loanpools)
@@ -93,7 +81,7 @@ const deleteApplicationByLoanId = (request, response) => {
     });
 }
 
-//implement app.get(/loans/:borrowerid) 
+//implement app.get(/loans/:borrowerid)
 const getActiveLoansByUserId = (request, response) => {
     const user_id = parseInt(request.params.user_id);
     pool.query("SELECT loans.* FROM loans, borrows WHERE borrows.borrower_id = $1 AND borrows.loan_id = loan.loan_id", [user_id], (error, results) => {

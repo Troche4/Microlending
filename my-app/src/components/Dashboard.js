@@ -49,7 +49,7 @@ const Dashboard = ({ setAuth }) => {
                                     <h3>Bank Manager: {firstname} {lastname} </h3>
                                 </header>
                                 <div className="card-container">
-                                    <p>Loan to be approved:</p>
+                                    <p>Loan to be approved/created/edited:</p>
                                 </div>
 
                             </div>
@@ -57,7 +57,7 @@ const Dashboard = ({ setAuth }) => {
 
                     </div>
                     <div className="column2">
-                        <h3>Column 2</h3>
+                        <h3>Loans Posted/Pending Approval</h3>
                     </div>
                 </div>
             </div>
