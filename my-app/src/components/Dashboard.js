@@ -1,13 +1,17 @@
-import React, { Fragment, useEffect, useState } from "react";
+import React, {  useEffect, useState } from "react";
 import SecondNav from "./SecondNav";
 import {useHistory} from "react-router-dom";
 import './dashboard.css';
 
 const Dashboard = ({ setAuth }) => {
+
     const [firstname, setFirstName,] = useState("");
     const [lastname, setLastName,] = useState("");
     const [role_id, setRoleId,] = useState("");
     const history = useHistory()
+    const [duration, setDuration,] = useState("");
+    const [principle, setPrinciple,] = useState("");
+    const [interest, setInterest,] = useState("");
 
 
     const getProfile = async () => {
@@ -18,6 +22,13 @@ const Dashboard = ({ setAuth }) => {
                 headers: { jwt_token: localStorage.token }
             });
 
+
+            const res2 = await fetch("http://localhost:3080/dashboard/loans", {
+                method: "GET",
+                headers: { jwt_token: localStorage.token }
+            });
+
+            console.log(res2);
             const parseData = await res.json();
             setFirstName(parseData.user_firstname);
             setLastName(parseData.user_lastname);
@@ -34,7 +45,9 @@ const Dashboard = ({ setAuth }) => {
 
     useEffect(() => {
         getProfile();
-    }, []);
+
+    },
+        []);
 
     return (
 

@@ -7,21 +7,17 @@ router.get('/roles', async (req, res) => {
     res.json(roles.rows);
 })
 
+router.get('/loans', async (req, res) => {
+    const loans = await  pool.query("SELECT * FROM loans");
+    res.json(loans.rows);
+})
+
 router.post("/", authorize, async (req, res) => {
     try {
         const user = await pool.query(
             "SELECT * FROM users WHERE user_id = $1",
-
             [req.user.id]
         );
-
-
-        //if would be req.user if you change your payload to this:
-
-        //   function jwtGenerator(user_id) {
-        //   const payload = {
-        //     user: user_id
-        //   };
 
         res.json(user.rows[0]);
     } catch (err) {

@@ -65,3 +65,4 @@ CREATE TABLE lends (
     CONSTRAINT loan_id FOREIGN KEY (loan_id) REFERENCES loans(loan_id) ON DELETE SET NULL,
     CONSTRAINT lender_id FOREIGN KEY (lender_id) REFERENCES lenders(lender_id) ON DELETE SET NULL
 );
+

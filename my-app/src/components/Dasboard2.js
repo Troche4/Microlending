@@ -8,6 +8,10 @@ const Dashboard2 = ({ setAuth }) => {
     const [firstname, setFirstName,] = useState("");
     const [lastname, setLastName,] = useState("");
     const [role_id, setRoleId,] = useState("");
+    const [loan_id, setLoanId,] = useState("");
+    const [duration, setDuration,] = useState("");
+    const [principal, setPrincipal,] = useState("");
+    const [interest, setInterest,] = useState("");
 
 
     const getProfile = async () => {
@@ -23,10 +27,22 @@ const Dashboard2 = ({ setAuth }) => {
             setRoleId(parseData.role_id);
 
 
+            const res2 = await fetch("http://localhost:3080/dashboard/loans", {
+                method: "GET",
+                headers: { jwt_token: localStorage.token }
+            });
+            let parseData2 = await res2.json();
+            parseData2 = parseData2[1];
+            setDuration(parseData2.duration);
+            setPrincipal(parseData2.principal);
+            setInterest(parseData2.interest*100);
+
         } catch (err) {
             console.error(err.message);
         }
     };
+
+
 
     useEffect(() => {
         getProfile();
@@ -61,7 +77,16 @@ const Dashboard2 = ({ setAuth }) => {
                 </div>
 
                 <div className="column2">
-                    <h3>Available Loans</h3>
+                    <h3>Loan Offerings</h3>
+                    <div className="card-1"style={{width: "70%"}}>
+                    <div className="card-container">
+
+                        <p>
+                        Loan 1: Loan Amount: ${ principal }, Duration: { duration } months,  Interest: { interest }%
+                        </p>
+
+                    </div>
+                    </div>
                 </div>
             </div>
         </div>

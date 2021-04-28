@@ -15,6 +15,7 @@ app.use(bodyParser.urlencoded({
 //ROUTE//
 //signin and signup
 
+
 app.use("/authentication", require("../api/routes/jwtAuth"));
 
 app.use("/dashboard", require("../api/routes/dashboard"));
@@ -27,7 +28,7 @@ app.get("/", (req, res) => {
 
 // CRUD operations for loan pools, or the loans that are available to be applied for. (Only bank manager can use these)
 
-app.get("/loanpools", queries.getLoanPools);
+app.get("/loanpools", queries.getLoanPools)
 app.post("/loanpools", queries.postNewLoanPool);
 app.put("/loanpools/:id", queries.updateLoanInPool);
 app.delete("/loanpools/:id", queries.deleteLoan);
