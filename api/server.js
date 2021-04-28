@@ -48,9 +48,9 @@ app.delete("/loans/:loanid/:borrowerid", queries.closeLoan);
 
 // CRUD operations for a user's balance. (delete not supported)
 
-app.get("balance/:user_id", queries.getBalanceById);
-app.post("balance/:user_id", queries.postBalanceById);
-app.put("balance/:user_id", queries.updateBalanceById);
+app.get("/balance/:user_id", queries.getBalanceById);
+app.post("/balance/:user_id", queries.postBalanceById);
+app.put("/balance/:user_id", queries.updateBalanceById);
 
 //all endpoints should go above here
 app.listen(PORT, () => {
